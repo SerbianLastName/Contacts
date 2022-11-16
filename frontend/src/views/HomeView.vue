@@ -1,22 +1,25 @@
 <script setup>
-import NewContact from '/src/components/NewContact.vue'
+import TopBar from '/src/components/TopBar.vue'
 import ContactList from '/src/components/ContactList.vue'
-import { singletons } from '../components/singletons/singletons.js'
+import ContactView from '/src/components/ContactView.vue'
+import PopUp from '/src/components/PopUp.vue'
+import { global } from '../components/Global.js'
 
-//  Retrieve contact list from singleton
-singletons.getList()
+global.getList()
 
 </script>
 
 <template>
   <div class="home">
-    <w-card class="grow" content-class="pa7">
+    <w-card class="grow" content-class="pa5">
       <w-toolbar horizontal fixed top shadow>
         <w-flex column align-center>
-          <NewContact />
+          <TopBar />
         </w-flex>
       </w-toolbar>
     </w-card>
+    <ContactView />
     <ContactList />
   </div>
+  <PopUp />
 </template>

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 # FastAPI documentation says to use fastapi.middleware.cors, this results in errors.
 from starlette.middleware.cors import CORSMiddleware
 from contacts.routes import contacts_router
-from contacts.check_routes import check_router
+from contacts.usps_routes import usps_router
 from config import config
 
 app = FastAPI()
@@ -27,9 +27,9 @@ app.include_router(
     responses={404: {"description": "Not found"}},
 )
 app.include_router(
-    check_router,
-    prefix="/check",
-    tags=["check"],
+    usps_router,
+    prefix="/usps",
+    tags=["usps"],
     responses={404: {"description": "Not found"}},
 )
 
